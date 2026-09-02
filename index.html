@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>个人研学产品作品集｜崇明湿地自然观察</title>
+  <style>
+    :root{
+      --bg:#fbfaf6;
+      --ink:#1e2a22;
+      --muted:#5e6b62;
+      --line:#e7e9e3;
+      --green:#2f5b46;
+      --chip:#eef3ee;
+      --shadow:0 10px 30px rgba(18,30,22,.06);
+      --radius:18px;
+      --max:1080px;
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC",
+      "Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(47,91,70,.10), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(126,154,134,.12), transparent 55%),
+        var(--bg);
+      line-height:1.65;
+      letter-spacing:.2px;
+    }
+    a{color:var(--green);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    .wrap{max-width:var(--max);margin:0 auto;padding:48px 20px 80px;}
+
+    .hero{
+      padding:34px 34px 28px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.72);
+      backdrop-filter: blur(6px);
+      border-radius: calc(var(--radius) + 10px);
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:linear-gradient(135deg, rgba(47,91,70,.16), rgba(126,154,134,.10), transparent 55%);
+      pointer-events:none;
+      mask:radial-gradient(900px 360px at 10% 0%, black 40%, transparent 70%);
+      opacity:.85;
+    }
+    .kicker{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 14px;position:relative;}
+    .pill{
+      font-size:13px;
+      padding:7px 10px;
+      border:1px solid var(--line);
+      background:rgba(238,243,238,.65);
+      color:var(--muted);
+      border-radius:999px;
+    }
+    .hero h1{
+      margin:6px 0 8px;
+      font-size:34px;
+      line-height:1.18;
+      letter-spacing:.6px;
+      position:relative;
+    }
+    .subtitle{margin:0 0 18px;font-size:16px;color:var(--muted);position:relative;}
+
+    .heroGrid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:18px;
+      margin-top:18px;
+      position:relative;
+    }
+    @media (max-width:860px){.heroGrid{grid-template-columns:1fr;}}
+
+    .quoteCard,.metaCard{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.78);
+      padding:18px;
+    }
+    .quoteCard .label{
+      font-size:12px;color:var(--muted);letter-spacing:.6px;text-transform:uppercase;margin-bottom:10px;
+    }
+    .coreQ{font-size:18px;margin:0;}
+    .coreQ b{color:var(--green);}
+
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+    .chip{
+      font-size:13px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:var(--chip);
+      border:1px solid var(--line);
+      color:var(--muted);
+    }
+
+    .metaGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .metaItem{
+      padding:12px 12px 10px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+    }
+    .metaItem .k{font-size:12px;color:var(--muted);margin:0 0 6px;}
+    .metaItem .v{margin:0;font-weight:600;}
+
+    .section{margin-top:42px;}
+    .secHead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:14px;}
+    .secTitle{margin:0;font-size:20px;letter-spacing:.4px;}
+    .secHint{margin:0;font-size:13px;color:var(--muted);}
+
+    .card{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.78);
+      box-shadow: var(--shadow);
+      padding:22px;
+    }
+    .twoCol{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    @media (max-width:860px){.twoCol{grid-template-columns:1fr;}}
+
+    .box{
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+      padding:16px;
+    }
+    .box h3{margin:0 0 8px;font-size:16px;}
+    .muted{color:var(--muted);}
+    .strong{font-weight:700;color:var(--green);}
+
+    .compare{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+    @media (max-width:860px){.compare{grid-template-columns:1fr;}}
+    .compare .col{
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+      padding:16px;
+    }
+    .flow{font-size:18px;margin:8px 0 0;letter-spacing:.3px;}
+    .flow span{color:var(--green);font-weight:700;}
+
+    .path4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (max-width:980px){.path4{grid-template-columns:1fr 1fr;}}
+    @media (max-width:520px){.path4{grid-template-columns:1fr;}}
+    .step{
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+      padding:14px;
+      min-height:126px;
+    }
+    .step .no{font-weight:800;color:var(--green);letter-spacing:.8px;font-size:13px;}
+    .step h4{margin:6px 0 6px;font-size:15px;}
+    .step p{margin:0;font-size:13px;color:var(--muted);}
+
+    .mediaBlock{
+      border:1px solid var(--line);
+      border-radius: calc(var(--radius) + 8px);
+      background: rgba(255,255,255,.78);
+      box-shadow: var(--shadow);
+      padding:18px;
+      overflow:hidden;
+    }
+    .mediaLabel{
+      font-size:12px;color:var(--muted);margin:0 0 10px;
+      letter-spacing:.6px;text-transform:uppercase;
+    }
+    .posterImg{
+      width:100%;
+      display:block;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+
+    .logic{
+      border:1px solid rgba(47,91,70,.22);
+      background: linear-gradient(180deg, rgba(238,243,238,.66), rgba(255,255,255,.88));
+      border-radius: calc(var(--radius) + 10px);
+      padding:22px;
+      box-shadow: 0 18px 60px rgba(18,30,22,.08);
+      position:relative;
+      overflow:hidden;
+    }
+    .logic:before{
+      content:"";
+      position:absolute;
+      width:520px;height:520px;
+      right:-240px;top:-280px;
+      background: radial-gradient(circle at 30% 30%, rgba(47,91,70,.22), transparent 55%);
+      opacity:.85;
+      pointer-events:none;
+    }
+    .logicQ{margin:6px 0 0;font-size:18px;}
+    .tri{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px;position:relative;}
+    .triCard{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:18px;
+      padding:16px;
+      display:grid;
+      grid-template-columns:160px 1fr;
+      gap:14px;
+      align-items:center;
+    }
+    @media (max-width:700px){.triCard{grid-template-columns:1fr;}}
+    .triLeft{
+      padding:10px 12px;
+      border-radius:14px;
+      background: rgba(238,243,238,.70);
+      border:1px solid var(--line);
+    }
+    .triLeft .no{font-weight:900;color:var(--green);font-size:13px;letter-spacing:.8px;}
+    .triLeft .t{margin:6px 0 0;font-size:15px;font-weight:800;}
+    .triRight .tag{
+      display:inline-block;
+      font-size:12px;
+      padding:5px 9px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: var(--chip);
+      color: var(--muted);
+      margin-bottom:8px;
+    }
+    .triRight p{margin:0;color:var(--muted);font-size:13px;}
+    .arrow{text-align:center;color: rgba(47,91,70,.65);font-weight:900;letter-spacing:1px;}
+
+    .goals{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;position:relative;}
+    @media (max-width:860px){.goals{grid-template-columns:1fr;}}
+    .goalBox{border:1px solid var(--line);background:#fff;border-radius:18px;padding:16px;}
+    .ladder{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:6px;font-weight:800;}
+    .ladder .node{
+      padding:8px 12px;border-radius:999px;border:1px solid var(--line);
+      background: rgba(238,243,238,.72);color: var(--green);
+    }
+    .ladder .down{color: rgba(47,91,70,.55);font-weight:900;}
+
+    .timeline{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;}
+    @media (max-width:860px){.timeline{grid-template-columns:1fr;}}
+    .tItem{border:1px solid var(--line);background:#fff;border-radius:16px;padding:14px;}
+    .tTime{font-weight:900;color:var(--green);letter-spacing:.4px;margin:0 0 6px;}
+    .tTitle{margin:0 0 4px;font-weight:800;}
+    .tDesc{margin:0;color:var(--muted);font-size:13px;}
+
+    .task3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;}
+    @media (max-width:980px){.task3{grid-template-columns:1fr;}}
+    .task{border:1px solid var(--line);background:#fff;border-radius:18px;padding:16px;}
+    .task .head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px;}
+    .task .name{margin:0;font-size:16px;font-weight:900;}
+    .task .badge{
+      font-size:12px;color:var(--muted);
+      border:1px solid var(--line);
+      background: var(--chip);
+      padding:5px 10px;border-radius:999px;white-space:nowrap;
+    }
+    .kv{margin:0;padding-left:0;list-style:none;color:var(--muted);font-size:13px;}
+    .kv li{margin:7px 0;}
+    .kv b{color:var(--ink);}
+
+    .visual2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;}
+    @media (max-width:860px){.visual2{grid-template-columns:1fr;}}
+
+    .pdfBlock{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;}
+    .pdfInfo{flex:1 1 420px;min-width:280px;}
+    .btn{
+      display:inline-block;
+      padding:12px 16px;
+      border-radius:14px;
+      background: var(--green);
+      color:#fff;
+      font-weight:800;
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:0 10px 24px rgba(47,91,70,.18);
+    }
+    .btn:hover{text-decoration:none;filter:brightness(.98);}
+
+    .footer{
+      margin-top:52px;
+      padding-top:26px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      text-align:center;
+    }
+    .footer .line1{font-weight:900;color:var(--green);font-size:16px;margin:0 0 10px;}
+    .footer .line2{margin:0;font-size:13px;}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- 一、页面整体定位 -->
+    <header class="hero">
+      <div class="kicker">
+        <span class="pill">研学产品策划</span>
+        <span class="pill">研学课程设计</span>
+        <span class="pill">自然教育课程研发</span>
+        <span class="pill">亲子研学产品设计</span>
+      </div>
+
+      <h1>个人研学产品作品集｜崇明湿地自然观察</h1>
+      <p class="subtitle">自然教育 × 亲子研学 × 户外观察</p>
+
+      <div class="heroGrid">
+        <div class="quoteCard">
+          <div class="label">核心项目</div>
+          <p style="margin:0 0 8px;">
+            <b>《崇明湿地自然观察》</b><br/>
+            一日亲子自然研学产品设计
+          </p>
+          <p class="coreQ">核心问题：<b>“为什么湿地里有这么多生命？”</b></p>
+
+          <div class="chips" aria-label="项目关键词">
+            <span class="chip">用户洞察</span>
+            <span class="chip">产品定位</span>
+            <span class="chip">课程设计</span>
+            <span class="chip">任务设计</span>
+            <span class="chip">亲子协作</span>
+            <span class="chip">自然观察</span>
+          </div>
+
+          <p class="muted" style="margin:14px 0 0; font-size:13px;">
+            项目类型：<span class="strong">个人研学产品设计作品</span>（概念方案）<br/>
+            设计方向：<span class="strong">研学产品策划 / 自然教育课程设计</span>
+          </p>
+        </div>
+
+        <div class="metaCard">
+          <div class="mediaLabel" style="margin:0 0 10px;">页面快速浏览（给 HR）</div>
+          <div class="metaGrid">
+            <div class="metaItem">
+              <p class="k">你会看到</p>
+              <p class="v">产品结构化表达</p>
+            </div>
+            <div class="metaItem">
+              <p class="k">重点能力</p>
+              <p class="v">洞察 / 课程 / 任务</p>
+            </div>
+            <div class="metaItem">
+              <p class="k">视觉重点</p>
+              <p class="v">海报 / 视频</p>
+            </div>
+            <div class="metaItem">
+              <p class="k">交付物</p>
+              <p class="v">手册 / 冰箱贴</p>
+            </div>
+          </div>
+
+          <p class="muted" style="margin:12px 0 0; font-size:13px;">
+            视觉风格：自然、专业、年轻、清爽、有设计感（低饱和绿色 × 米白 × 浅灰留白）
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- 二、项目概述 -->
+    <section class="section" id="overview">
+      <div class="secHead">
+        <h2 class="secTitle">项目概述</h2>
+        <p class="secHint">信息密度控制在“一屏看懂项目”</p>
+      </div>
+
+      <div class="card">
+        <div class="twoCol">
+          <div class="box">
+            <h3>基础信息</h3>
+            <p class="muted" style="margin:0;">
+              <b>项目名称：</b>《崇明湿地自然观察》<br/>
+              <b>产品类型：</b>一日亲子自然研学<br/>
+              <b>目标用户：</b>上海 3–12 岁亲子家庭<br/>
+              <b>核心场景：</b>崇明湿地
+            </p>
+          </div>
+
+          <div class="box">
+            <h3>核心设计</h3>
+            <p class="muted" style="margin:0;">
+              以真实湿地为学习场景，通过<strong>自然观察</strong>、<strong>问题探究</strong>、<strong>生态推理</strong>、<strong>成果创作</strong>与<strong>表达反思</strong>，让儿童从“看自然”走向“理解自然”。
+            </p>
+            <p class="flow" style="margin-top:10px;">
+              课程主线：<span>观察</span> → <span>提问</span> → <span>推理</span> → <span>创作</span> → <span>表达</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 三、01｜项目背景 & 用户洞察 -->
+    <section class="section" id="s01">
+      <div class="secHead">
+        <h2 class="secTitle">01｜项目背景 & 用户洞察</h2>
+        <p class="secHint">从“看景打卡”转向“观察—提问—理解”</p>
+      </div>
+
+      <div class="card">
+        <div class="box" style="margin-bottom:14px;">
+          <h3>为什么设计这款产品？</h3>
+          <p class="muted" style="margin:0;">
+            城市儿童与自然环境接触有限，传统亲子自然旅行容易停留在“看景 → 听讲 → 打卡”的浅层体验，而儿童真正缺少的是<strong>观察自然、提出问题、理解自然关系</strong>的机会。<br/><br/>
+            因此，我尝试将真实湿地环境转化为一个<strong>可观察、可探索、可提问、可推理、可表达</strong>的自然教育课堂。
+          </p>
+        </div>
+
+        <div class="twoCol">
+          <div class="box">
+            <h3>儿童用户</h3>
+            <p class="muted" style="margin:0;">
+              <b>特征：</b>好奇心强，但缺乏逻辑引导，难以建立系统认知。<br/>
+              <b>核心需求：</b><span class="strong">探索、发现、动手、参与、表达</span>。
+            </p>
+          </div>
+          <div class="box">
+            <h3>家长用户</h3>
+            <p class="muted" style="margin:0;">
+              <b>核心关注：</b>安全、教育价值、亲子体验、成果反馈。<br/>
+              <b>核心期望：</b>希望孩子在自然中学会观察、发现问题并形成独立思考。
+            </p>
+          </div>
+        </div>
+
+        <div class="box" style="margin-top:14px;">
+          <h3>设计机会</h3>
+          <p class="muted" style="margin:0;">
+            将真实湿地环境转化为<strong>可观察、可探索、可提问、可推理、可表达</strong>的沉浸式自然教育课堂。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 四、02｜产品定位 & 设计理念 -->
+    <section class="section" id="s02">
+      <div class="secHead">
+        <h2 class="secTitle">02｜产品定位 & 设计理念</h2>
+        <p class="secHint">产品表达：定位清晰 + 路径可复用</p>
+      </div>
+
+      <div class="card">
+        <div class="box">
+          <h3>产品定位</h3>
+          <p class="muted" style="margin:0;">
+            面向亲子家庭打造的湿地自然探索型一日研学产品，打破传统观光模式，通过<strong>沉浸式体验</strong>与<strong>深度探究</strong>，让孩子在真实的自然场景中建立对生态系统的认知与热爱。
+          </p>
+        </div>
+
+        <div class="compare">
+          <div class="col">
+            <h3 style="margin:0 0 8px;">普通自然旅行</h3>
+            <p class="flow" style="margin:0;">看景 → 听讲 → 拍照打卡</p>
+            <p class="muted" style="margin:10px 0 0; font-size:13px;">
+              体验以“接收信息”为主，难形成结构化理解与可迁移能力。
+            </p>
+          </div>
+          <div class="col">
+            <h3 style="margin:0 0 8px;">本产品</h3>
+            <p class="flow" style="margin:0;">
+              <span>观察</span> → <span>提问</span> → <span>推理</span> → <span>创作</span> → <span>表达</span>
+            </p>
+            <p class="muted" style="margin:10px 0 0; font-size:13px;">
+              以问题为牵引，让儿童把“看到的现象”转化为“理解的关系”。
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top:14px;">
+          <h3 style="margin:0 0 10px;">沉浸式学习路径</h3>
+          <div class="path4">
+            <div class="step">
+              <div class="no">01</div>
+              <h4>感知自然</h4>
+              <p>调动多感官，观察湿地动植物细节，建立直观认知。</p>
+            </div>
+            <div class="step">
+              <div class="no">02</div>
+              <h4>发现问题</h4>
+              <p>在探索中发现生态现象疑问，激发好奇心与探究欲。</p>
+            </div>
+            <div class="step">
+              <div class="no">03</div>
+              <h4>理解规律</h4>
+              <p>探究生物依存关系，理解湿地生态系统运作逻辑。</p>
+            </div>
+            <div class="step">
+              <div class="no">04</div>
+              <h4>心生守护</h4>
+              <p>建立情感联结，从认知升华为行动，树立保护意识。</p>
+            </div>
+          </div>
+
+          <p style="margin:14px 0 0; font-weight:900; color:var(--green); font-size:18px;">
+            “让自然成为最好的老师。”
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 五、主题海报 -->
+    <section class="section" id="poster">
+      <div class="secHead">
+        <h2 class="secTitle">主题海报</h2>
+        <p class="secHint">视觉表达（完整展示）</p>
+      </div>
+
+      <div class="mediaBlock">
+        <img class="posterImg"
+             src="崇明湿地自然观察研学海报.png"
+             alt="崇明湿地自然观察研学海报" />
+      </div>
+    </section>
+
+    <!-- 六、03｜课程设计逻辑 -->
+    <section class="section" id="s03">
+      <div class="secHead">
+        <h2 class="secTitle">03｜课程设计逻辑</h2>
+        <p class="secHint">页面视觉与专业能力双重点</p>
+      </div>
+
+      <div class="logic">
+        <div>
+          <h2 style="margin:0;">一个核心问题贯穿全天</h2>
+          <p class="logicQ">“为什么湿地里有这么多生命？”</p>
+          <p class="muted" style="margin:10px 0 0; font-size:13px;">
+            以“问题—证据—关系”的学习路径，强化儿童的观察能力与系统思维，并将过程固化为可交付成果。
+          </p>
+        </div>
+
+        <div class="tri">
+          <div class="triCard">
+            <div class="triLeft">
+              <div class="no">01｜我发现了什么？</div>
+              <div class="t">自然观察</div>
+            </div>
+            <div class="triRight">
+              <span class="tag">能力</span>
+              <p><b>观察｜记录｜描述</b></p>
+            </div>
+          </div>
+
+          <div class="arrow">↓</div>
+
+          <div class="triCard">
+            <div class="triLeft">
+              <div class="no">02｜为什么会这样？</div>
+              <div class="t">问题探究</div>
+            </div>
+            <div class="triRight">
+              <span class="tag">能力</span>
+              <p><b>比较｜提问｜推理</b></p>
+            </div>
+          </div>
+
+          <div class="arrow">↓</div>
+
+          <div class="triCard">
+            <div class="triLeft">
+              <div class="no">03｜如果少了它，会发生什么？</div>
+              <div class="t">生态关系</div>
+            </div>
+            <div class="triRight">
+              <span class="tag">能力</span>
+              <p><b>因果推理｜系统思维</b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="goals">
+          <div class="goalBox">
+            <h3 style="margin:0 0 6px;">学习目标进阶</h3>
+            <div class="ladder" aria-label="学习目标进阶">
+              <span class="node">认识自然</span>
+              <span class="down">↓</span>
+              <span class="node">理解自然</span>
+              <span class="down">↓</span>
+              <span class="node">产生保护意识</span>
+            </div>
+          </div>
+
+          <div class="goalBox">
+            <h3 style="margin:0 0 6px;">核心能力</h3>
+            <p style="margin:0; font-weight:900; color:var(--green);">
+              观察能力 · 问题意识 · 逻辑推理 · 系统思维 · 表达共情
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 七、04｜一日研学体验路径 -->
+    <section class="section" id="s04">
+      <div class="secHead">
+        <h2 class="secTitle">04｜一日研学体验路径</h2>
+        <p class="secHint">时间轴（简洁可扫读）</p>
+      </div>
+
+      <div class="card">
+        <div class="box">
+          <h3 style="margin:0 0 8px;">课程主线</h3>
+          <p class="flow" style="margin:0;">
+            <span>观察</span> → <span>提问</span> → <span>推理</span> → <span>创作</span> → <span>表达</span>
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="tItem"><p class="tTime">07:30–09:00</p><p class="tTitle">问题预热</p><p class="tDesc">激发问题意识</p></div>
+          <div class="tItem"><p class="tTime">09:00–09:30</p><p class="tTitle">开营</p><p class="tDesc">建立课程主线</p></div>
+          <div class="tItem"><p class="tTime">09:30–11:00</p><p class="tTitle">任务一｜湿地侦探</p><p class="tDesc">观察｜记录｜提问</p></div>
+          <div class="tItem"><p class="tTime">11:00–12:00</p><p class="tTitle">任务二｜鸟儿为什么住在这里？</p><p class="tDesc">观察｜比较｜推理</p></div>
+          <div class="tItem"><p class="tTime">12:00–13:00</p><p class="tTitle">午餐 + 自由观察</p><p class="tDesc">补充观察证据与记录</p></div>
+          <div class="tItem"><p class="tTime">13:00–14:30</p><p class="tTitle">任务三｜如果少了它，会发生什么？</p><p class="tDesc">因果推理｜系统思维</p></div>
+          <div class="tItem"><p class="tTime">14:30–15:30</p><p class="tTitle">成果制作</p><p class="tDesc">“湿地生命关系”冰箱贴</p></div>
+          <div class="tItem"><p class="tTime">15:30–16:00</p><p class="tTitle">成果分享</p><p class="tDesc">分享发现与思考</p></div>
+          <div class="tItem" style="grid-column:1 / -1;">
+            <p class="tTime">16:00–17:30</p><p class="tTitle">快乐返程</p><p class="tDesc">带着收获与思考结束湿地研学之旅</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 八、05｜核心任务设计 -->
+    <section class="section" id="s05">
+      <div class="secHead">
+        <h2 class="secTitle">05｜核心任务设计</h2>
+        <p class="secHint">任务卡片（能力训练可视化）</p>
+      </div>
+
+      <div class="card">
+        <div class="task3">
+          <div class="task">
+            <div class="head"><p class="name">湿地侦探</p><span class="badge">任务一</span></div>
+            <ul class="kv">
+              <li><b>任务：</b>寻找 3 种生物 + 2 种环境要素</li>
+              <li><b>成果：</b>《湿地自然观察手册》</li>
+              <li><b>培养：</b><span class="strong">观察、记录、描述、提问</span></li>
+            </ul>
+          </div>
+
+          <div class="task">
+            <div class="head"><p class="name">鸟儿的栖息谜题</p><span class="badge">任务二</span></div>
+            <ul class="kv">
+              <li><b>观察：</b>位置｜行为｜周围环境</li>
+              <li><b>核心问题：</b>为什么不同的鸟会选择不同的栖息环境？</li>
+              <li><b>价值：</b>理解鸟类与栖息环境的关系。</li>
+            </ul>
+          </div>
+
+          <div class="task">
+            <div class="head"><p class="name">生态连锁反应</p><span class="badge">任务三</span></div>
+            <ul class="kv">
+              <li><b>工具：</b>水｜植物｜昆虫｜鸟｜土壤</li>
+              <li><b>核心问题：</b>如果少了其中一个，会发生什么？</li>
+              <li><b>价值：</b>建立“生物与环境相互关联”的系统认知。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="box" style="margin-top:14px;">
+          <h3 style="margin:0 0 8px;">能力路径</h3>
+          <p style="margin:0; font-weight:900; color:var(--green); font-size:16px;">
+            观察发现 → 比较分析 → 逻辑推理 → 合作表达
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 九、06｜学习成果 & 产品落地 -->
+    <section class="section" id="s06">
+      <div class="secHead">
+        <h2 class="secTitle">06｜学习成果 & 产品落地</h2>
+        <p class="secHint">交付物 + 教学支持 + 风险预案</p>
+      </div>
+
+      <div class="card">
+        <div class="twoCol">
+          <div class="box">
+            <h3>学生端｜沉浸式自然探索</h3>
+            <p class="muted" style="margin:0;">
+              - 《湿地自然观察手册》<br/>
+              - “湿地生命关系”冰箱贴<br/>
+              - 成果分享
+            </p>
+          </div>
+          <div class="box">
+            <h3>教师端｜标准化教学支持</h3>
+            <p class="muted" style="margin:0;">
+              - 课程目标<br/>
+              - 活动流程<br/>
+              - 任务设计<br/>
+              - 安全方案<br/>
+              - Plan B
+            </p>
+          </div>
+        </div>
+
+        <div class="box" style="margin-top:14px;">
+          <h3>产品端｜研学价值定位</h3>
+          <p class="muted" style="margin:0;">
+            - 用户画像<br/>
+            - 产品定位<br/>
+            - 活动逻辑<br/>
+            - 产品卖点
+          </p>
+        </div>
+
+        <div class="twoCol" style="margin-top:14px;">
+          <div class="box">
+            <h3>安全保障</h3>
+            <p class="muted" style="margin:0;">
+              区域踩点｜活动边界｜分组管理｜水域安全｜风险提醒
+            </p>
+          </div>
+          <div class="box">
+            <h3>Plan B</h3>
+            <p class="muted" style="margin:0;">
+              <b>风险：</b>降雨｜高温｜大风<br/>
+              <b>方案：</b>室内观察 + 关系卡推理 + 图片/标本观察 + 成果制作
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 十、07｜视觉成果 -->
+    <section class="section" id="s07">
+      <div class="secHead">
+        <h2 class="secTitle">07｜视觉成果</h2>
+        <p class="secHint">海报 & 概念视频</p>
+      </div>
+
+      <div class="card">
+        <div class="visual2">
+          <div class="mediaBlock">
+            <p class="mediaLabel">01 / 研学主题海报</p>
+            <img class="posterImg"
+                 src="崇明湿地自然观察研学海报.png"
+                 alt="崇明湿地自然观察研学海报" />
+          </div>
+
+          <div class="mediaBlock">
+            <p class="mediaLabel">02 / 研学概念视频</p>
+
+            <div class="box" style="margin:0; background:rgba(255,255,255,.88);">
+              <h3 style="margin:0 0 6px;">《崇明湿地自然观察研学概念片》</h3>
+              <p class="muted" style="margin:0; font-size:13px;">
+                20–30 秒沉浸式研学概念片，展现湿地自然环境、儿童探索过程与产品体验氛围。
+              </p>
+
+              <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+                <a class="btn" href="https://b23.tv/Cs0819F" target="_blank" rel="noopener">
+                  立即观看（B站）
+                </a>
+                <a href="https://b23.tv/Cs0819F" target="_blank" rel="noopener"
+                   style="font-size:13px; color:var(--muted); text-decoration:underline;">
+                  https://b23.tv/Cs0819F
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 十一、08｜完整产品设计方案 -->
+    <section class="section" id="s08">
+      <div class="secHead">
+        <h2 class="secTitle">08｜完整产品设计方案</h2>
+        <p class="secHint">PDF 下载阅读</p>
+      </div>
+
+      <div class="card">
+        <div class="pdfBlock">
+          <div class="pdfInfo">
+            <h3 style="margin:0 0 8px;">完整设计逻辑（PDF）</h3>
+            <p class="muted" style="margin:0;">
+              《崇明湿地自然观察｜自然教育研学产品设计》
+            </p>
+          </div>
+
+          <a class="btn" href="《崇明湿地自然观察｜自然教育研学产品设计》.pdf" target="_blank" rel="noopener">
+            查看完整产品方案
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 十二、关于我 -->
+    <section class="section" id="about">
+      <div class="secHead">
+        <h2 class="secTitle">About Me｜关于我</h2>
+        <p class="secHint">求职作品集（概念方案，不虚构运营数据）</p>
+      </div>
+
+      <div class="card">
+        <div class="twoCol">
+          <div class="box">
+            <h3>教育背景</h3>
+            <p class="muted" style="margin:0;">旅游管理本科｜林业专业硕士</p>
+
+            <h3 style="margin-top:14px;">关注方向</h3>
+            <p class="muted" style="margin:0;">研学旅行 × 自然教育 × 亲子活动</p>
+          </div>
+
+          <div class="box">
+            <h3>核心能力</h3>
+            <p class="muted" style="margin:0;">
+              研学产品策划<br/>
+              自然教育课程设计<br/>
+              研学任务设计<br/>
+              用户画像与产品定位<br/>
+              亲子活动设计<br/>
+              AI 图片 / 视频视觉内容创作
+            </p>
+          </div>
+        </div>
+
+        <div class="box" style="margin-top:14px;">
+          <h3>项目说明</h3>
+          <p class="muted" style="margin:0;">
+            本项目属于<strong>个人研学产品设计作品 / 概念方案</strong>。不虚构招生人数、营收、用户评价、真实执行数据与商业合作。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 十三、页面最后 -->
+    <footer class="footer">
+      <p class="line1">“让自然成为最好的老师。”</p>
+      <p class="line2">
+        个人研学产品设计作品<br/>
+        自然教育 × 亲子研学 × 户外观察
+      </p>
+    </footer>
+
+  </div>
+</body>
+</html>
