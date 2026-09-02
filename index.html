@@ -94,19 +94,13 @@
 
         .heroGrid {
             display: grid;
-            grid-template-columns: 1.2fr .8fr;
+            grid-template-columns: 1fr;
             gap: 18px;
             margin-top: 18px;
             position: relative;
         }
-        @media (max-width:860px) {
-            .heroGrid {
-                grid-template-columns: 1fr;
-            }
-        }
 
-        .quoteCard,
-        .metaCard {
+        .quoteCard {
             border: 1px solid var(--line);
             border-radius: var(--radius);
             background: rgba(255, 255, 255, .78);
@@ -142,27 +136,6 @@
             color: var(--muted);
         }
 
-        .metaGrid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-        .metaItem {
-            padding: 12px 12px 10px;
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            background: #fff;
-        }
-        .metaItem .k {
-            font-size: 12px;
-            color: var(--muted);
-            margin: 0 0 6px;
-        }
-        .metaItem .v {
-            margin: 0;
-            font-weight: 600;
-        }
-
         .section {
             margin-top: 42px;
         }
@@ -178,10 +151,9 @@
             font-size: 20px;
             letter-spacing: .4px;
         }
+        /* 删除所有 .secHint 相关样式，因为不再使用 */
         .secHint {
-            margin: 0;
-            font-size: 13px;
-            color: var(--muted);
+            display: none;
         }
 
         .card {
@@ -590,7 +562,7 @@
             <p class="subtitle">自然教育 × 亲子研学 × 户外观察</p>
 
             <div class="heroGrid">
-                <!-- 左侧：核心项目 -->
+                <!-- 核心项目卡片（原左侧，现独占一行） -->
                 <div class="quoteCard">
                     <div class="label">核心项目</div>
                     <p style="margin:0 0 8px;">
@@ -613,29 +585,7 @@
                         设计方向：<span class="strong">研学产品策划 / 自然教育课程设计</span>
                     </p>
                 </div>
-
-                <!-- 右侧：快速概览 -->
-                <div class="metaCard">
-                    <div class="mediaLabel" style="margin:0 0 10px;">项目概览</div>
-                    <div class="metaGrid">
-                        <div class="metaItem">
-                            <p class="k">内容结构</p>
-                            <p class="v">产品化表达</p>
-                        </div>
-                        <div class="metaItem">
-                            <p class="k">核心能力</p>
-                            <p class="v">洞察 / 课程 / 任务</p>
-                        </div>
-                        <div class="metaItem">
-                            <p class="k">视觉成果</p>
-                            <p class="v">海报 / 视频</p>
-                        </div>
-                        <div class="metaItem">
-                            <p class="k">交付物</p>
-                            <p class="v">手册 / 冰箱贴</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- 原右侧 metaCard 已删除 -->
             </div>
         </header>
 
@@ -643,7 +593,7 @@
         <section class="section" id="overview">
             <div class="secHead">
                 <h2 class="secTitle">项目概述</h2>
-                <p class="secHint">一屏读懂项目全貌</p>
+                <!-- 原 secHint 已删除 -->
             </div>
 
             <div class="card">
@@ -675,7 +625,6 @@
         <section class="section" id="s01">
             <div class="secHead">
                 <h2 class="secTitle">01｜项目背景 &amp; 用户洞察</h2>
-                <p class="secHint">从“看景打卡”转向“观察—提问—理解”</p>
             </div>
 
             <div class="card">
@@ -717,7 +666,6 @@
         <section class="section" id="s02">
             <div class="secHead">
                 <h2 class="secTitle">02｜产品定位 &amp; 设计理念</h2>
-                <p class="secHint">定位清晰 · 路径可复用</p>
             </div>
 
             <div class="card">
@@ -783,16 +731,9 @@
         <section class="section" id="poster">
             <div class="secHead">
                 <h2 class="secTitle">主题海报</h2>
-                <p class="secHint">视觉呈现</p>
             </div>
 
             <div class="mediaBlock">
-                <!--
-                图片路径：崇明湿地自然观察研学海报.png
-                如果图片未显示，请检查：
-                1. 文件名是否与仓库中的完全一致（包括空格）
-                2. 可尝试将图片重命名为英文名（如 wetland-poster.png）并更新 src
-                -->
                 <img class="posterImg"
                 src="崇明湿地自然观察研学海报.png"
                 alt="崇明湿地自然观察研学海报"
@@ -807,7 +748,6 @@
         <section class="section" id="s03">
             <div class="secHead">
                 <h2 class="secTitle">03｜课程设计逻辑</h2>
-                <p class="secHint">问题驱动 · 能力递进</p>
             </div>
 
             <div class="logic">
@@ -884,7 +824,6 @@
         <section class="section" id="s04">
             <div class="secHead">
                 <h2 class="secTitle">04｜一日研学体验路径</h2>
-                <p class="secHint">时间轴 · 可扫读</p>
             </div>
 
             <div class="card">
@@ -915,7 +854,6 @@
         <section class="section" id="s05">
             <div class="secHead">
                 <h2 class="secTitle">05｜核心任务设计</h2>
-                <p class="secHint">任务卡片 · 能力可视化</p>
             </div>
 
             <div class="card">
@@ -961,7 +899,6 @@
         <section class="section" id="s06">
             <div class="secHead">
                 <h2 class="secTitle">06｜学习成果 &amp; 产品落地</h2>
-                <p class="secHint">交付物 · 教学支持 · 风险预案</p>
             </div>
 
             <div class="card">
@@ -1018,7 +955,6 @@
         <section class="section" id="s07">
             <div class="secHead">
                 <h2 class="secTitle">07｜视觉成果</h2>
-                <p class="secHint">海报 &amp; 概念视频</p>
             </div>
 
             <div class="card">
@@ -1062,7 +998,6 @@
     <section class="section" id="s08">
         <div class="secHead">
             <h2 class="secTitle">08｜完整产品设计方案</h2>
-            <p class="secHint">PDF 下载阅读</p>
         </div>
 
         <div class="card">
@@ -1085,7 +1020,6 @@
     <section class="section" id="about">
         <div class="secHead">
             <h2 class="secTitle">About Me</h2>
-            <p class="secHint">个人背景与能力</p>
         </div>
 
         <div class="card">
