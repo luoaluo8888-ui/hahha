@@ -280,6 +280,27 @@
             background: #fff;
         }
 
+        /* 湿地实景网格 */
+        .galleryGrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .galleryGrid img {
+            width: 100%;
+            display: block;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            background: #fff;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+        @media (max-width:600px) {
+            .galleryGrid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .logic {
             border: 1px solid rgba(47, 91, 70, .22);
             background: linear-gradient(180deg, rgba(238, 243, 238, .66), rgba(255, 255, 255, .88));
@@ -740,6 +761,25 @@
             </div>
         </section>
 
+        <!-- ========== 湿地实景 ========== -->
+        <section class="section" id="gallery">
+            <div class="secHead">
+                <h2 class="secTitle">湿地实景</h2>
+            </div>
+
+            <div class="card">
+                <div class="galleryGrid">
+                    <img src="1.jpg" alt="崇明湿地实景 1" onerror="this.style.display='none';" />
+                    <img src="2.jpg" alt="崇明湿地实景 2" onerror="this.style.display='none';" />
+                    <img src="3.jpg" alt="崇明湿地实景 3" onerror="this.style.display='none';" />
+                    <img src="4.jpg" alt="崇明湿地实景 4" onerror="this.style.display='none';" />
+                </div>
+                <p class="muted" style="margin:12px 0 0; font-size:13px; text-align:center;">
+                    崇明湿地实景 · 自然观察与探索的现场
+                </p>
+            </div>
+        </section>
+
         <!-- ========== 03｜课程设计逻辑 ========== -->
         <section class="section" id="s03">
             <div class="secHead">
@@ -1004,7 +1044,6 @@
                         《崇明湿地自然观察｜自然教育研学产品设计》
                     </p>
                 </div>
-                <!-- 唯一 PDF 链接，文件名已更新为 自然教育研学产品设计.pdf -->
                 <a class="btn" href="自然教育研学产品设计.pdf" target="_blank" rel="noopener">
                     查看完整产品方案
                 </a>
