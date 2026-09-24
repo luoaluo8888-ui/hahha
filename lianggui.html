@@ -1,0 +1,2362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>《探索力成长观察量规》</title>
+
+<style>
+
+/* =========================================================
+   基础
+========================================================= */
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:#eee9e2;
+  color:#394348;
+  font-family:
+    "Microsoft YaHei",
+    "PingFang SC",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  line-height:1.65;
+}
+
+/* =========================================================
+   返回作品集首页按钮
+========================================================= */
+
+.back-home{
+  position:fixed;
+  top:18px;
+  left:18px;
+  z-index:999;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:9px 16px;
+  border-radius:999px;
+  background:rgba(255,255,255,.94);
+  color:#8c8398;
+  font-size:13px;
+  font-weight:700;
+  text-decoration:none;
+  border:1px solid #e2dbe6;
+  box-shadow:0 6px 18px rgba(72,63,53,.12);
+  backdrop-filter:blur(6px);
+  transition:background .2s,transform .2s;
+  font-family:inherit;
+}
+
+.back-home:hover{
+  background:#f2eef5;
+  text-decoration:none;
+  transform:translateY(-1px);
+}
+
+@media(max-width:820px){
+  .back-home{
+    top:12px;
+    left:12px;
+    padding:7px 13px;
+    font-size:12px;
+  }
+}
+
+/* 打印时隐藏返回按钮 */
+@media print{
+  .back-home{ display:none !important; }
+}
+
+/* =========================================================
+   页面（屏幕预览）
+========================================================= */
+
+.page{
+  width:794px;
+  min-height:1123px;
+  margin:24px auto;
+  padding:36px 42px;
+  background:
+    radial-gradient(circle at 7% 8%,rgba(216,198,176,.20),transparent 23%),
+    radial-gradient(circle at 92% 88%,rgba(194,185,208,.14),transparent 24%),
+    linear-gradient(180deg,#fffdf9 0%,#fcfaf6 100%);
+  box-shadow:
+    0 12px 36px rgba(72,63,53,.10);
+  position:relative;
+  overflow:hidden;
+}
+
+/* =========================================================
+   Header
+========================================================= */
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  padding-bottom:17px;
+  border-bottom:1px solid #e8dfd6;
+}
+
+h1{
+  margin:0;
+  color:#4e514f;
+  font-size:28px;
+  line-height:1.3;
+}
+
+.subtitle{
+  margin-top:5px;
+  font-size:13px;
+  color:#8a8179;
+}
+
+.icon{
+  width:92px;
+  height:76px;
+  flex:none;
+}
+
+/* =========================================================
+   信息
+========================================================= */
+
+.info{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:18px;
+}
+
+.input-box{
+  border:1px solid #e5ddd4;
+  border-radius:11px;
+  background:#fffdfa;
+  padding:10px 12px;
+}
+
+.input-box label{
+  display:block;
+  margin-bottom:4px;
+  font-size:11px;
+  color:#958b82;
+}
+
+.input-box input{
+  width:100%;
+  border:0;
+  outline:none;
+  background:transparent;
+  color:#484e4d;
+  font-family:inherit;
+  font-size:14px;
+}
+
+/* =========================================================
+   说明
+========================================================= */
+
+.note{
+  margin-top:16px;
+  padding:13px 15px;
+  border:1px solid #e9e0d6;
+  border-radius:11px;
+  background:#faf5ee;
+  color:#776f68;
+  font-size:12px;
+}
+
+.note strong{
+  color:#685f57;
+}
+
+/* =========================================================
+   警告
+========================================================= */
+
+.warning{
+  display:none;
+  margin-top:11px;
+  padding:10px 13px;
+  border-radius:9px;
+  background:#fbefeb;
+  color:#906b60;
+  border:1px solid #edd9d1;
+  font-size:12px;
+}
+
+.warning.show{
+  display:block;
+}
+
+/* =========================================================
+   Dimension
+========================================================= */
+
+.dimension{
+  margin-top:18px;
+  border:1px solid #e5ded7;
+  border-radius:13px;
+  overflow:hidden;
+  background:#fffdfa;
+}
+
+.dimension-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:12px 15px;
+  background:#f8f3ed;
+}
+
+.dimension-head strong{
+  color:#5b5b57;
+  font-size:16px;
+}
+
+.dimension-head span{
+  font-size:11px;
+  color:#968d84;
+  text-align:right;
+}
+
+/* =========================================================
+   点击选择卡片
+========================================================= */
+
+.options{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  padding:13px 14px 10px;
+}
+
+.option-btn{
+  appearance:none;
+  -webkit-appearance:none;
+
+  border:1px solid #dfd8d0;
+  background:#fffdfa;
+  border-radius:10px;
+
+  min-height:74px;
+  padding:10px 7px;
+
+  cursor:pointer;
+
+  font-family:inherit;
+  color:#686761;
+  font-size:11.5px;
+  line-height:1.5;
+
+  transition:
+    border-color .18s ease,
+    background .18s ease,
+    transform .12s ease,
+    box-shadow .18s ease;
+}
+
+.option-btn:hover{
+  border-color:#b9aebf;
+  background:#fcfaf7;
+  transform:translateY(-1px);
+}
+
+.option-btn:active{
+  transform:scale(.98);
+}
+
+.option-btn.selected{
+  border:2px solid #8b8199;
+  background:#f2eef5;
+  color:#62586c;
+  font-weight:700;
+  box-shadow:
+    0 4px 12px rgba(99,86,112,.10);
+}
+
+.option-title{
+  display:block;
+  margin-bottom:3px;
+  font-size:12.5px;
+}
+
+.option-desc{
+  display:block;
+  font-size:10.5px;
+  color:#988f87;
+  font-weight:400;
+}
+
+.option-btn.selected .option-desc{
+  color:#776c80;
+}
+
+.unobserved.selected{
+  border-color:#b3aaa2;
+  background:#f5f1ec;
+  color:#6e6963;
+  box-shadow:none;
+}
+
+.desc{
+  padding:0 14px 13px;
+  color:#938981;
+  font-size:11px;
+}
+
+/* =========================================================
+   操作按钮
+========================================================= */
+
+.action-row{
+  display:grid;
+  grid-template-columns:1fr 120px;
+  gap:10px;
+  margin-top:21px;
+}
+
+.generate-btn,
+.reset-btn{
+  appearance:none;
+  border:0;
+  border-radius:11px;
+  padding:13px 10px;
+  font-family:inherit;
+  cursor:pointer;
+}
+
+.generate-btn{
+  background:#8c8398;
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
+}
+
+.generate-btn:hover{
+  background:#786f84;
+}
+
+.reset-btn{
+  border:1px solid #dfd6ce;
+  background:#fffdfa;
+  color:#756e67;
+  font-size:12px;
+}
+
+/* =========================================================
+   Result
+========================================================= */
+
+.result{
+  margin-top:22px;
+  display:none;
+}
+
+.result.show{
+  display:block;
+}
+
+.result-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+.result-card{
+  border:1px solid #e4ddd5;
+  border-radius:13px;
+  background:#fffdfa;
+  padding:16px;
+}
+
+.result-card h2{
+  margin:0 0 12px;
+  font-size:17px;
+  color:#5f5961;
+}
+
+.highlight{
+  padding:11px 12px;
+  border-radius:9px;
+  background:#f8f3ec;
+  margin-bottom:10px;
+  font-size:12.5px;
+}
+
+.next{
+  padding:11px 12px;
+  border-radius:9px;
+  background:#f3f0f6;
+  color:#655e6d;
+  font-size:12.5px;
+}
+
+.phrase{
+  margin-top:12px;
+  padding:12px 13px;
+  border-left:4px solid #b1a5bb;
+  background:#faf8fb;
+  color:#69636d;
+  font-size:12.5px;
+}
+
+.incomplete{
+  padding:14px;
+  border-radius:10px;
+  background:#f6f2ed;
+  color:#776f68;
+  font-size:12px;
+}
+
+/* =========================================================
+   雷达图
+========================================================= */
+
+.radar-wrap{
+  min-height:340px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.radar{
+  width:300px;
+  height:300px;
+}
+
+.legend{
+  margin-top:7px;
+  text-align:center;
+  color:#9a9188;
+  font-size:10px;
+  line-height:1.5;
+}
+
+/* =========================================================
+   Footer
+========================================================= */
+
+.footer{
+  margin-top:20px;
+  text-align:center;
+  font-size:11px;
+  color:#9a9188;
+}
+
+/* =========================================================
+   手机
+========================================================= */
+
+@media(max-width:820px){
+
+  .page{
+    width:100%;
+    margin:0;
+    padding:26px 20px;
+  }
+
+  .info{
+    grid-template-columns:1fr;
+  }
+
+  .options{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .action-row{
+    grid-template-columns:1fr;
+  }
+
+}
+
+/* =========================================================
+   ★★★ 打印核心设置 ★★★
+========================================================= */
+
+@page{
+  size:A4;
+  margin:10mm 10mm 12mm;
+}
+
+@media print{
+
+  html,
+  body{
+    background:#ffffff !important;
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+
+  .page{
+    width:100% !important;
+    min-height:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    border:none !important;
+    overflow:visible !important;
+  }
+
+  .action-row,
+  .warning{
+    display:none !important;
+  }
+
+  .result{
+    display:block !important;
+  }
+
+  .header,
+  .info,
+  .note,
+  .dimension,
+  .dimension-head,
+  .options,
+  .option-btn,
+  .result,
+  .result-grid,
+  .result-card,
+  .highlight,
+  .next,
+  .phrase,
+  .incomplete,
+  .radar-wrap,
+  .footer{
+    break-inside:avoid !important;
+    page-break-inside:avoid !important;
+  }
+
+  .header,
+  .dimension-head,
+  h1,
+  h2,
+  .subtitle,
+  .note,
+  .desc{
+    break-after:avoid !important;
+    page-break-after:avoid !important;
+  }
+
+  .footer{
+    break-before:avoid !important;
+    page-break-before:avoid !important;
+  }
+
+  body{
+    font-size:12px;
+  }
+
+  h1{
+    font-size:24px;
+  }
+
+  .subtitle{
+    font-size:12px;
+  }
+
+  .info{
+    margin-top:12px;
+  }
+
+  .note{
+    margin-top:12px;
+    padding:10px 12px;
+  }
+
+  .dimension{
+    margin-top:12px;
+  }
+
+  .dimension-head{
+    padding:9px 12px;
+  }
+
+  .dimension-head strong{
+    font-size:14.5px;
+  }
+
+  .options{
+    padding:10px 12px 8px;
+    gap:6px;
+  }
+
+  .option-btn{
+    min-height:60px;
+    padding:8px 6px;
+    font-size:10.5px;
+  }
+
+  .option-title{
+    font-size:11.5px;
+  }
+
+  .option-desc{
+    font-size:9.5px;
+  }
+
+  .desc{
+    padding:0 12px 10px;
+    font-size:10.5px;
+  }
+
+  .result{
+    margin-top:14px;
+  }
+
+  .result-card{
+    padding:13px;
+  }
+
+  .result-card h2{
+    font-size:15px;
+  }
+
+  .radar-wrap{
+    min-height:260px;
+  }
+
+  .radar{
+    width:250px;
+    height:250px;
+  }
+
+  .footer{
+    margin-top:14px;
+    font-size:10px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 返回作品集首页按钮 -->
+<a href="index.html" class="back-home">← 返回作品集首页</a>
+
+<div class="page">
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <div class="header">
+
+    <div>
+
+      <h1>
+        《探索力成长观察量规》
+      </h1>
+
+      <div class="subtitle">
+        人与湿地如何共生？｜教师轻量观察工具
+      </div>
+
+    </div>
+
+
+    <!-- 成长小花园 SVG -->
+
+    <svg
+      class="icon"
+      viewBox="0 0 120 90"
+    >
+
+      <path
+        d="M15 70 Q60 59 105 70 L105 86 L15 86Z"
+        fill="#e6ddd0"
+      />
+
+      <path
+        d="M62 72 C61 60 59 48 63 35"
+        stroke="#7f9889"
+        stroke-width="4"
+        fill="none"
+        stroke-linecap="round"
+      />
+
+      <path
+        d="M61 54 C47 48 40 39 46 29 C56 33 62 42 61 54Z"
+        fill="#aec4b4"
+      />
+
+      <path
+        d="M63 47 C76 40 84 31 80 22 C69 25 63 34 63 47Z"
+        fill="#c5d4c6"
+      />
+
+      <circle
+        cx="64"
+        cy="25"
+        r="8"
+        fill="#d8c8d9"
+      />
+
+      <circle
+        cx="56"
+        cy="22"
+        r="6"
+        fill="#e3d6e2"
+      />
+
+      <circle
+        cx="72"
+        cy="19"
+        r="6"
+        fill="#e3d6e2"
+      />
+
+      <circle
+        cx="64"
+        cy="24"
+        r="3"
+        fill="#baa6bf"
+      />
+
+      <circle
+        cx="21"
+        cy="25"
+        r="5"
+        fill="#efe6dd"
+      />
+
+      <circle
+        cx="96"
+        cy="32"
+        r="4"
+        fill="#efe6dd"
+      />
+
+    </svg>
+
+  </div>
+
+
+  <!-- =====================================================
+       信息
+  ====================================================== -->
+
+  <div class="info">
+
+    <div class="input-box">
+
+      <label for="studentName">
+        学生姓名
+      </label>
+
+      <input
+        id="studentName"
+        type="text"
+        placeholder="请输入"
+      >
+
+    </div>
+
+
+    <div class="input-box">
+
+      <label for="groupName">
+        小组
+      </label>
+
+      <input
+        id="groupName"
+        type="text"
+        placeholder="请输入"
+      >
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       说明
+  ====================================================== -->
+
+  <div class="note">
+
+    <strong>使用方式：</strong>
+
+    教师不打分、不排名，只在项目关键节点根据学生的实际表现进行轻量观察。
+
+    <br>
+
+    <strong>特别说明：</strong>
+
+    “本次未观察到”不代表能力不足，只表示本次活动中暂时没有足够的观察证据。
+
+  </div>
+
+
+  <div
+    id="warning"
+    class="warning"
+  >
+    请先完成4个观察维度。如果某项本次没有足够证据，请选择“本次未观察到”，不要凭感觉判断。
+  </div>
+
+
+  <!-- =====================================================
+       维度1
+  ====================================================== -->
+
+  <div class="dimension">
+
+    <div class="dimension-head">
+
+      <strong>
+        ① 问题发现
+      </strong>
+
+      <span>
+        有没有主动提出值得研究的问题？
+      </span>
+
+    </div>
+
+
+    <div class="options">
+
+      <button
+        type="button"
+        class="option-btn"
+        data-dimension="d1"
+        data-value="1"
+        onclick="selectOption(this)"
+      >
+
+        <span class="option-title">
+          需要提示
+        </span>
+
+        <span class="option-desc">
+          在引导下发现问题
+        </span>
+
+      </button>
+
+
+      <button
+        type="button"
+        class="option-btn"
+        data-dimension="d1"
+        data-value="2"
+        onclick="selectOption(this)"
+      >
+
+        <span class="option-title">
+          能够独立完成
+        </span>
+
+        <span class="option-desc">
+          能主动提出问题
+        </span>
+
+      </button>
+
+
+      <button
+        type="button"
+        class="option-btn"
+        data-dimension="d1"
+        data-value="3"
+        onclick="selectOption(this)"
+      >
+
+        <span class="option-title">
+          主动拓展
+        </span>
+
+        <span class="option-desc">
+          能继续追问新的方向
+        </span>
+
+      </button>
+
+
+      <button
+        type="button"
+        class="option-btn unobserved"
+        data-dimension="d1"
+        data-value="0"
+        onclick="selectOption(this)"
+      >
+
+        <span class="option-title">
+          本次未观察到
+        </span>
+
+        <span class="option-desc">
+          暂无足够证据判断
+        </span>
+
+      </button>
+
+    </div>
+
+
+    <div class="desc">
+
+      <strong>观察证据：</strong>
+
+      例如主动提出“为什么鸟会选择这里？”
+      或“为什么这个地方游客更多？”
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       维度2
+  ====================================================== -->
+
+  <div class="dimension">
+
+    <div class="dimension-head">
+
+      <strong>
+        ② 观察取证
+      </strong>
+
+      <span>
+        有没有认真观察、记录、寻找证据？
+      </span>
+
+    </div>
+
+
+    <div class="options">
+
+      <button
+        type="button"
+        class="option-btn"
+        data-dimension="d2"
+        data-value="1"
+        onclick="selectOption(this)"
+      >
+
+        <span class="option-title">
+          需要提示
+        </span>
+
+        <span class="option-desc">
+          才能完成观察记录
+        </span>
+
+      </button>
+
+
+      <button
+        type="button"
+        class="option-btn"
+        data-dimension="d2"
+        data-value="2"
+        onclick="selectOption(this)"
+      >
+
+        <span class="option-title">
+          能够独立完成
+        </span>
+
+        <span class="option-desc">
+          能记录主要信息
+        </span>
+
+      </button>
+
+
+      <button
+        type="button"
+        class="option-btn"
+        data-dimension="d2"
+        data-value="3"
+        onclick="selectOption(this)"
+      >
+
+        <span class="option-title">
+          主动拓展
+        </span>
+
+        <span class="option-desc">
+          能寻找更有价值的证据
+        </span>
+
+      </button>
+
+
+      <button
+        type="button"
+        class="option-btn unobserved"
+        data-dimension="d2"
+        data-value="0"
+        onclick="selectOption(this)"
+      >
+
+        <span class="option-title">
+          本次未观察到
+        </span>
+
+        <span class="option-desc">
+          暂无足够证据判断
+        </span>
+
+      </button>
+
+    </div>
+
+
+    <div class="desc">
+
+      <strong>观察证据：</strong>
+
+      例如主动记录位置、数量、行为和周围环境，
+      而不是只记录“看到了一只鸟”。
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       维度3
+  ====================================================== -->
+
+  <div class="dimension">
+
+    <div class="dimension-head">
+
+      <strong>
+        ③ 分析判断
+      </strong>
+
+      <span>
+        能不能用证据支持自己的判断？
+      </span>
+
+    </div>
+
+
+    <div class="options">
+
+      <button
+        type="button"
+        class="option-btn"
+        data-dimension="d3"
+        data-value="1"
+        onclick="selectOption(this)"
+      >
+
+        <span class="option-title">
+          需要提示
+        </span>
+
+        <span class="option-desc">
+          主要表达个人感觉
+        </span>
+
+      </button>
+
+
+      <button
+        type="button"
+        class="option-btn"
+        data-dimension="d3"
+        data-value="2"
+        onclick="selectOption(this)"
+      >
+
+        <span class="option-title">
+          能够独立完成
+        </span>
+
+        <span class="option-desc">
+          能使用部分证据
+        </span>
+
+      </button>
+
+
+      <button
+        type="button"
+        class="option-btn"
+        data-dimension="d3"
+        data-value="3"
+        onclick="selectOption(this)"
+      >
+
+        <span class="option-title">
+          主动拓展
+        </span>
+
+        <span class="option-desc">
+          能比较证据并修正想法
+        </span>
+
+      </button>
+
+
+      <button
+        type="button"
+        class="option-btn unobserved"
+        data-dimension="d3"
+        data-value="0"
+        onclick="selectOption(this)"
+      >
+
+        <span class="option-title">
+          本次未观察到
+        </span>
+
+        <span class="option-desc">
+          暂无足够证据判断
+        </span>
+
+      </button>
+
+    </div>
+
+
+    <div class="desc">
+
+      <strong>观察证据：</strong>
+
+      例如能回答“我为什么这样判断？”
+      并指出自己的观察记录。
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       维度4
+  ====================================================== -->
+
+  <div class="dimension">
+
+    <div class="dimension-head">
+
+      <strong>
+        ④ 方案设计
+      </strong>
+
+      <span>
+        方案是否回应问题，并使用调查证据？
+      </span>
+
+    </div>
+
+
+    <div class="options">
+
+      <button
+        type="button"
+        class="option-btn"
+        data-dimension="d4"
+        data-value="1"
+        onclick="selectOption(this)"
+      >
+
+        <span class="option-title">
+          需要提示
+        </span>
+
+        <span class="option-desc">
+          只能提出简单想法
+        </span>
+
+      </button>
+
+
+      <button
+        type="button"
+        class="option-btn"
+        data-dimension="d4"
+        data-value="2"
+        onclick="selectOption(this)"
+      >
+
+        <span class="option-title">
+          能够独立完成
+        </span>
+
+        <span class="option-desc">
+          能形成基本方案
+        </span>
+
+      </button>
+
+
+      <button
+        type="button"
+        class="option-btn"
+        data-dimension="d4"
+        data-value="3"
+        onclick="selectOption(this)"
+      >
+
+        <span class="option-title">
+          主动拓展
+        </span>
+
+        <span class="option-desc">
+          能根据反馈优化方案
+        </span>
+
+      </button>
+
+
+      <button
+        type="button"
+        class="option-btn unobserved"
+        data-dimension="d4"
+        data-value="0"
+        onclick="selectOption(this)"
+      >
+
+        <span class="option-title">
+          本次未观察到
+        </span>
+
+        <span class="option-desc">
+          暂无足够证据判断
+        </span>
+
+      </button>
+
+    </div>
+
+
+    <div class="desc">
+
+      <strong>观察证据：</strong>
+
+      例如方案能够回答“为什么这样设计”，
+      并引用调查所得证据。
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       操作
+  ====================================================== -->
+
+  <div class="action-row">
+
+    <button
+      type="button"
+      class="generate-btn"
+      onclick="generateResult()"
+    >
+      生成探索力成长画像
+    </button>
+
+
+    <button
+      type="button"
+      class="reset-btn"
+      onclick="resetAll()"
+    >
+      清空重选
+    </button>
+
+  </div>
+
+
+  <!-- =====================================================
+       结果
+  ====================================================== -->
+
+  <div
+    id="result"
+    class="result"
+  >
+
+    <div class="result-grid">
+
+
+      <!-- 左侧：文字建议 -->
+
+      <div class="result-card">
+
+        <h2 id="resultTitle">
+          探索力成长画像
+        </h2>
+
+
+        <div id="completeResult">
+
+          <div class="highlight">
+
+            <strong>
+              本次表现亮点
+            </strong>
+
+            <div
+              id="strengthText"
+              style="margin-top:6px;"
+            ></div>
+
+          </div>
+
+
+          <div class="next">
+
+            <strong>
+              下一步成长方向
+            </strong>
+
+            <div
+              id="nextText"
+              style="margin-top:6px;"
+            ></div>
+
+          </div>
+
+
+          <div class="phrase">
+
+            <strong>
+              教师沟通建议
+            </strong>
+
+            <div
+              id="teacherText"
+              style="margin-top:6px;"
+            ></div>
+
+          </div>
+
+        </div>
+
+
+        <div
+          id="incompleteResult"
+          class="incomplete"
+          style="display:none;"
+        >
+
+          <strong>
+            本次暂不生成完整能力画像
+          </strong>
+
+          <div style="margin-top:7px;">
+
+            有维度选择了“本次未观察到”。
+
+            这不是能力不足，而是说明本次项目中暂时没有足够的观察证据。
+
+            后续项目可以继续观察该维度。
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- 右侧：雷达图 -->
+
+      <div class="result-card radar-wrap">
+
+        <div style="width:100%;">
+
+          <svg
+            id="radarChart"
+            class="radar"
+            viewBox="0 0 300 300"
+          ></svg>
+
+
+          <div
+            id="radarLegend"
+            class="legend"
+          >
+
+            探索力成长画像
+            <br>
+            仅呈现本次项目中的观察结果，不作为孩子能力总评
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer">
+
+    评价不是给孩子贴标签，而是为下一次学习提供方向。
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   当前选择
+========================================================= */
+
+const selectedValues = {
+
+  d1:null,
+  d2:null,
+  d3:null,
+  d4:null
+
+};
+
+
+/* =========================================================
+   文字建议库
+   —— 成长方向从「能力维度」表述：
+      问题意识 / 证据收集 / 证据分析 / 项目表达
+========================================================= */
+
+const dataMap = {
+
+  d1:{
+    name:"问题发现",
+
+    /* 成长方向标签 */
+    growth:"问题意识",
+
+    strong:"能够主动发现值得关注的现象，并提出自己的问题。",
+
+    next:
+      "建议重点发展【问题意识】：在观察时多问“为什么”和“如果……会怎样”，把看到的现象转化成可以研究的小问题。",
+
+    advice:
+      "可以和孩子说：“你提的这个问题很有意思，我们怎样才能找到答案呢？”引导他把问题说得更清楚。"
+  },
+
+
+  d2:{
+    name:"观察取证",
+
+    growth:"证据收集",
+
+    strong:"能够认真观察，并记录与问题相关的信息。",
+
+    next:
+      "建议重点发展【证据收集】：使用“位置 + 数量 + 行为 + 环境”的记录方式，让观察更完整，证据更充分。",
+
+    advice:
+      "可以问孩子：“除了你看到的，还有哪些细节可以记下来？这些细节能帮我们说明什么？”"
+  },
+
+
+  d3:{
+    name:"分析判断",
+
+    growth:"证据分析",
+
+    strong:"能够尝试使用观察证据解释自己的想法。",
+
+    next:
+      "建议重点发展【证据分析】：在表达判断时使用“因为……所以……”的句式，并至少找出两条证据来支持自己的观点。",
+
+    advice:
+      "可以追问：“你从哪里看出这个结论的？”“还有没有其他可能的原因？”帮助孩子比较不同证据。"
+  },
+
+
+  d4:{
+    name:"方案设计",
+
+    growth:"项目表达",
+
+    strong:"能够围绕问题提出自己的解决方案。",
+
+    next:
+      "建议重点发展【项目表达】：在设计方案时先明确“要解决什么问题”，再思考“需要哪些条件”“可能遇到什么困难”，并尝试向同伴清晰说明自己的设计理由。",
+
+    advice:
+      "可以问：“你的方案为什么能解决问题？”“如果条件有限，还可以怎么调整？”"
+  }
+
+};
+
+
+/* =========================================================
+   点击卡片
+========================================================= */
+
+function selectOption(button){
+
+  const dimension =
+    button.dataset.dimension;
+
+  const value =
+    Number(button.dataset.value);
+
+
+  const buttons =
+    document.querySelectorAll(
+      `.option-btn[data-dimension="${dimension}"]`
+    );
+
+
+  buttons.forEach(btn=>{
+
+    btn.classList.remove("selected");
+
+  });
+
+
+  button.classList.add("selected");
+
+
+  selectedValues[dimension] =
+    value;
+
+
+  document
+    .getElementById("warning")
+    .classList
+    .remove("show");
+
+}
+
+
+/* =========================================================
+   雷达图坐标
+========================================================= */
+
+function radarPoint(
+  cx,
+  cy,
+  r,
+  index,
+  total,
+  value
+){
+
+  const angle =
+    (-Math.PI/2)
+    +
+    (Math.PI*2/total)*index;
+
+
+  const rr =
+    r*(value/3);
+
+
+  return [
+
+    cx + Math.cos(angle)*rr,
+
+    cy + Math.sin(angle)*rr
+
+  ];
+
+}
+
+
+/* =========================================================
+   绘制完整雷达图（4维度）
+========================================================= */
+
+function drawRadar(values){
+
+  const svg =
+    document.getElementById("radarChart");
+
+  const NS =
+    "http://www.w3.org/2000/svg";
+
+
+  while(svg.firstChild){
+
+    svg.removeChild(svg.firstChild);
+
+  }
+
+
+  const cx=150;
+  const cy=145;
+  const r=92;
+
+  const labels=[
+    "问题发现",
+    "观察取证",
+    "分析判断",
+    "方案设计"
+  ];
+
+  const total=4;
+
+
+  /* =========================
+     网格
+  ========================= */
+
+  [1,2,3].forEach(level=>{
+
+    let points=[];
+
+
+    for(let i=0;i<total;i++){
+
+      const [
+        x,
+        y
+      ] =
+        radarPoint(
+          cx,
+          cy,
+          r,
+          i,
+          total,
+          level
+        );
+
+
+      points.push(
+        `${x},${y}`
+      );
+
+    }
+
+
+    const poly =
+      document.createElementNS(
+        NS,
+        "polygon"
+      );
+
+
+    poly.setAttribute(
+      "points",
+      points.join(" ")
+    );
+
+
+    poly.setAttribute(
+      "fill",
+      "none"
+    );
+
+
+    poly.setAttribute(
+      "stroke",
+      "#e1dad2"
+    );
+
+
+    poly.setAttribute(
+      "stroke-width",
+      "1"
+    );
+
+
+    svg.appendChild(poly);
+
+  });
+
+
+  /* =========================
+     轴线
+  ========================= */
+
+  for(let i=0;i<total;i++){
+
+    const [
+      x,
+      y
+    ] =
+      radarPoint(
+        cx,
+        cy,
+        r,
+        i,
+        total,
+        3
+      );
+
+
+    const line =
+      document.createElementNS(
+        NS,
+        "line"
+      );
+
+
+    line.setAttribute(
+      "x1",
+      cx
+    );
+
+
+    line.setAttribute(
+      "y1",
+      cy
+    );
+
+
+    line.setAttribute(
+      "x2",
+      x
+    );
+
+
+    line.setAttribute(
+      "y2",
+      y
+    );
+
+
+    line.setAttribute(
+      "stroke",
+      "#e4ded7"
+    );
+
+
+    svg.appendChild(line);
+
+  }
+
+
+  /* =========================
+     数据面
+  ========================= */
+
+  let points=[];
+
+
+  values.forEach((value,index)=>{
+
+    const [
+      x,
+      y
+    ] =
+      radarPoint(
+        cx,
+        cy,
+        r,
+        index,
+        total,
+        value
+      );
+
+
+    points.push(
+      `${x},${y}`
+    );
+
+  });
+
+
+  const poly =
+    document.createElementNS(
+      NS,
+      "polygon"
+    );
+
+
+  poly.setAttribute(
+    "points",
+    points.join(" ")
+  );
+
+
+  poly.setAttribute(
+    "fill",
+    "#c9bfd0"
+  );
+
+
+  poly.setAttribute(
+    "fill-opacity",
+    ".48"
+  );
+
+
+  poly.setAttribute(
+    "stroke",
+    "#8c8098"
+  );
+
+
+  poly.setAttribute(
+    "stroke-width",
+    "2"
+  );
+
+
+  svg.appendChild(poly);
+
+
+  /* =========================
+     顶点
+  ========================= */
+
+  values.forEach((value,index)=>{
+
+    const [
+      x,
+      y
+    ] =
+      radarPoint(
+        cx,
+        cy,
+        r,
+        index,
+        total,
+        value
+      );
+
+
+    const circle =
+      document.createElementNS(
+        NS,
+        "circle"
+      );
+
+
+    circle.setAttribute(
+      "cx",
+      x
+    );
+
+
+    circle.setAttribute(
+      "cy",
+      y
+    );
+
+
+    circle.setAttribute(
+      "r",
+      "3.5"
+    );
+
+
+    circle.setAttribute(
+      "fill",
+      "#8c8098"
+    );
+
+
+    svg.appendChild(circle);
+
+  });
+
+
+  /* =========================
+     标签
+  ========================= */
+
+  labels.forEach((label,index)=>{
+
+    const angle =
+      (-Math.PI/2)
+      +
+      (Math.PI*2/total)*index;
+
+
+    const x =
+      cx
+      +
+      Math.cos(angle)*(r+25);
+
+
+    const y =
+      cy
+      +
+      Math.sin(angle)*(r+25);
+
+
+    const text =
+      document.createElementNS(
+        NS,
+        "text"
+      );
+
+
+    text.textContent =
+      label;
+
+
+    text.setAttribute(
+      "x",
+      x
+    );
+
+
+    text.setAttribute(
+      "y",
+      y
+    );
+
+
+    text.setAttribute(
+      "text-anchor",
+      "middle"
+    );
+
+
+    text.setAttribute(
+      "fill",
+      "#756c77"
+    );
+
+
+    text.setAttribute(
+      "font-size",
+      "12"
+    );
+
+
+    svg.appendChild(text);
+
+  });
+
+}
+
+
+/* =========================================================
+   未观察状态
+========================================================= */
+
+function drawIncomplete(){
+
+  const svg =
+    document.getElementById("radarChart");
+
+  const NS =
+    "http://www.w3.org/2000/svg";
+
+
+  while(svg.firstChild){
+
+    svg.removeChild(svg.firstChild);
+
+  }
+
+
+  const text =
+    document.createElementNS(
+      NS,
+      "text"
+    );
+
+
+  text.textContent =
+    "本次暂未形成完整画像";
+
+
+  text.setAttribute(
+    "x",
+    "150"
+  );
+
+
+  text.setAttribute(
+    "y",
+    "140"
+  );
+
+
+  text.setAttribute(
+    "text-anchor",
+    "middle"
+  );
+
+
+  text.setAttribute(
+    "fill",
+    "#8a8179"
+  );
+
+
+  text.setAttribute(
+    "font-size",
+    "14"
+  );
+
+
+  svg.appendChild(text);
+
+
+  const text2 =
+    document.createElementNS(
+      NS,
+      "text"
+    );
+
+
+  text2.textContent =
+    "继续积累观察证据";
+
+
+  text2.setAttribute(
+    "x",
+    "150"
+  );
+
+
+  text2.setAttribute(
+    "y",
+    "162"
+  );
+
+
+  text2.setAttribute(
+    "text-anchor",
+    "middle"
+  );
+
+
+  text2.setAttribute(
+    "fill",
+    "#aaa098"
+  );
+
+
+  text2.setAttribute(
+    "font-size",
+    "11"
+  );
+
+
+  svg.appendChild(text2);
+
+
+  document.getElementById(
+    "radarLegend"
+  ).innerHTML =
+    "本次存在“未观察到”维度"
+    +
+    "<br>"
+    +
+    "不进行能力高低推断";
+
+}
+
+
+/* =========================================================
+   生成画像
+========================================================= */
+
+function generateResult(){
+
+  const values=[
+
+    selectedValues.d1,
+    selectedValues.d2,
+    selectedValues.d3,
+    selectedValues.d4
+
+  ];
+
+
+  /* =========================
+     是否全部选择
+  ========================= */
+
+  if(
+    values.some(
+      value => value === null
+    )
+  ){
+
+    document
+      .getElementById("warning")
+      .classList
+      .add("show");
+
+    return;
+
+  }
+
+
+  const student =
+    document
+      .getElementById("studentName")
+      .value
+      .trim();
+
+
+  const keys=[
+    "d1",
+    "d2",
+    "d3",
+    "d4"
+  ];
+
+
+  const unobserved =
+    values.some(
+      value => value === 0
+    );
+
+
+  /* =========================
+     标题
+  ========================= */
+
+  document.getElementById(
+    "resultTitle"
+  ).innerText =
+    student
+      ? student+"｜探索力成长画像"
+      : "探索力成长画像";
+
+
+  /* =========================
+     存在未观察
+  ========================= */
+
+  if(unobserved){
+
+    document.getElementById(
+      "completeResult"
+    ).style.display="none";
+
+
+    document.getElementById(
+      "incompleteResult"
+    ).style.display="block";
+
+
+    drawIncomplete();
+
+
+  }else{
+
+    document.getElementById(
+      "completeResult"
+    ).style.display="block";
+
+
+    document.getElementById(
+      "incompleteResult"
+    ).style.display="none";
+
+
+    let strengths=[];
+    let needs=[];
+
+
+    keys.forEach(key=>{
+
+      const value =
+        selectedValues[key];
+
+      const item =
+        dataMap[key];
+
+
+      if(value>=2){
+
+        strengths.push(
+          item.name
+        );
+
+      }
+
+
+      if(value===1){
+
+        needs.push(
+          item
+        );
+
+      }
+
+    });
+
+
+    /* =========================
+       本次表现亮点
+    ========================= */
+
+    let strengthText;
+
+
+    if(strengths.length===0){
+
+      strengthText =
+        "本次项目中，孩子正在逐步熟悉探索流程，能够参与各项活动。";
+
+    }else{
+
+      strengthText =
+        "本次比较突出的方面："
+        +
+        strengths.join("、")
+        +
+        "。";
+
+    }
+
+
+    /* =========================
+       下一步成长方向（能力维度表述）
+    ========================= */
+
+    let nextText;
+
+
+    if(needs.length===0){
+
+      nextText =
+        "孩子在本次项目中表现出较好的探索力。下一步可以尝试更开放的问题，或把已有的探索方法迁移到新的情境中。";
+
+    }else{
+
+      nextText =
+        needs
+          .map(item => `【${item.growth}】${item.next.replace(/^建议重点发展【[^】]+】：/, "")}`)
+          .join("<br><br>");
+
+    }
+
+
+    /* =========================
+       教师沟通建议
+    ========================= */
+
+    let teacherText;
+
+
+    if(needs.length===0){
+
+      teacherText =
+        "孩子已经能够比较独立地完成本次探究。可以继续提供更开放的问题和更复杂的任务，并鼓励他分享自己的探索过程。";
+
+    }else{
+
+      teacherText =
+        needs
+          .map(item => item.advice)
+          .join("<br><br>");
+
+    }
+
+
+    document.getElementById(
+      "strengthText"
+    ).innerHTML =
+      strengthText;
+
+
+    document.getElementById(
+      "nextText"
+    ).innerHTML =
+      nextText;
+
+
+    document.getElementById(
+      "teacherText"
+    ).innerHTML =
+      teacherText;
+
+
+    drawRadar(values);
+
+
+    document.getElementById(
+      "radarLegend"
+    ).innerHTML =
+      "探索力成长画像"
+      +
+      "<br>"
+      +
+      "仅呈现本次项目中的观察结果，不作为孩子能力总评";
+
+  }
+
+
+  /* =========================
+     显示
+  ========================= */
+
+  document
+    .getElementById("result")
+    .classList
+    .add("show");
+
+
+  setTimeout(()=>{
+
+    document
+      .getElementById("result")
+      .scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
+
+  },100);
+
+}
+
+
+/* =========================================================
+   清空
+========================================================= */
+
+function resetAll(){
+
+  selectedValues.d1=null;
+  selectedValues.d2=null;
+  selectedValues.d3=null;
+  selectedValues.d4=null;
+
+
+  document
+    .querySelectorAll(".option-btn")
+    .forEach(btn=>{
+      btn.classList.remove("selected");
+    });
+
+
+  document.getElementById(
+    "studentName"
+  ).value="";
+
+
+  document.getElementById(
+    "groupName"
+  ).value="";
+
+
+  document.getElementById(
+    "result"
+  ).classList.remove("show");
+
+
+  document.getElementById(
+    "warning"
+  ).classList.remove("show");
+
+}
+
+</script>
+
+</body>
+</html>
