@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>罗丽君｜PBL研学指导师作品集</title>
+    <title>罗丽君｜自然研学指导师作品集</title>
 
     <style>
         :root {
@@ -185,6 +185,50 @@
             font-weight: 600;
         }
 
+        /* ===== 野外观察照片条 ===== */
+        .field-strip {
+            position: relative;
+            z-index: 2;
+            margin-top: 30px;
+        }
+
+        .field-strip-label {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .14em;
+            color: var(--red);
+            margin-bottom: 10px;
+        }
+
+        .field-strip-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        .field-strip-grid a {
+            display: block;
+            aspect-ratio: 1 / 1;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #fff;
+            background: #fff;
+            box-shadow: 0 8px 20px rgba(18, 30, 22, .10);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .field-strip-grid a:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 30px rgba(18, 30, 22, .18);
+        }
+
+        .field-strip-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         /* ===== 卡片导航 ===== */
         .cover-nav {
             position: relative;
@@ -192,7 +236,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 18px;
-            margin-top: 40px;
+            margin-top: 36px;
         }
 
         .cover-card {
@@ -290,7 +334,7 @@
 
         /* 不同板块顶部色条 */
         .card-resume { border-top: 5px solid #6c9bd2; }
-        .card-pbl    { border-top: 5px solid #8e7cc3; }
+        .card-ziran  { border-top: 5px solid #8e7cc3; }
         .card-dufu   { border-top: 5px solid var(--red); }
         .card-panda  { border-top: 5px solid #e8a87c; }
         .card-chongming { border-top: 5px solid var(--green); }
@@ -335,6 +379,10 @@
             .cover-nav {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .field-strip-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
         }
 
         @media (max-width: 640px) {
@@ -368,6 +416,10 @@
             .cover-footer {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            .field-strip-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
@@ -406,9 +458,9 @@
 
             <!-- 头部文字 -->
             <div class="cover-head">
-                <div class="cover-eyebrow">PORTFOLIO ｜ PBL研学指导师作品集</div>
+                <div class="cover-eyebrow">PORTFOLIO ｜ 自然研学指导师作品集</div>
                 <h1>罗丽君</h1>
-                <div class="cover-role">PBL研学指导师 / 旅游产品经理 / 研学产品经理</div>
+                <div class="cover-role">自然研学指导师 / 旅游产品经理 / 研学产品经理</div>
                 <p class="cover-desc">
                     真实业务交付 × 0→1 产品设计 ｜ 点击下方卡片，进入对应板块
                 </p>
@@ -416,14 +468,36 @@
 
             <!-- 能力标签 -->
             <div class="cover-tags">
-                <span>项目式教学</span>
+                <span>自然教育</span>
                 <span>课程设计</span>
                 <span>带队经历</span>
                 <span>任务单设计</span>
                 <span>评价量规</span>
-                <span>自然教育</span>
+                <span>生态科普</span>
                 <span>用户洞察</span>
                 <span>产品定位</span>
+            </div>
+
+            <!-- 野外观察照片 -->
+            <div class="field-strip" id="field-photos">
+                <div class="field-strip-label">📷 野外观察实录</div>
+                <div class="field-strip-grid">
+                    <a href="zi1.jpg" target="_blank" rel="noopener">
+                        <img src="zi1.jpg" alt="野外观察照片 1" loading="lazy">
+                    </a>
+                    <a href="zi2.jpg" target="_blank" rel="noopener">
+                        <img src="zi2.jpg" alt="野外观察照片 2" loading="lazy">
+                    </a>
+                    <a href="zi3.jpg" target="_blank" rel="noopener">
+                        <img src="zi3.jpg" alt="野外观察照片 3" loading="lazy">
+                    </a>
+                    <a href="zi4.jpg" target="_blank" rel="noopener">
+                        <img src="zi4.jpg" alt="野外观察照片 4" loading="lazy">
+                    </a>
+                    <a href="zi5.jpg" target="_blank" rel="noopener">
+                        <img src="zi5.jpg" alt="野外观察照片 5" loading="lazy">
+                    </a>
+                </div>
             </div>
 
             <!-- 卡片导航 -->
@@ -438,18 +512,19 @@
                     <a class="card-arrow" href="jianli.pdf" target="_blank" rel="noopener">查看 PDF ↗</a>
                 </div>
 
-                <!-- 02 PBL 项目（重点推荐） -->
-                <div class="cover-card card-pbl">
+                <!-- 02 自然研学项目（重点推荐） -->
+                <div class="cover-card card-ziran">
                     <span class="badge-hot">🔥 重点推荐</span>
                     <span class="card-num">02</span>
                     <div class="card-icon">🧩</div>
-                    <h3><a href="PBL.html">PBL 项目</a></h3>
-                    <p>项目式学习 · 驱动性问题 · 任务链 · 成果评价</p>
+                    <h3><a href="ziran.html">自然研学项目</a></h3>
+                    <p>自然教育 · 生态探究 · 任务链 · 成果评价</p>
                     <div class="card-sub-links">
                         <a href="renwudan.html">📄 任务单</a>
                         <a href="lianggui.html">📊 量规</a>
+                        <a href="#field-photos">📷 野外观察</a>
                     </div>
-                    <a class="card-arrow" href="PBL.html">进入项目 →</a>
+                    <a class="card-arrow" href="ziran.html">进入项目 →</a>
                 </div>
 
                 <!-- 03 杜甫草堂研学案例（带队经历） -->
@@ -487,7 +562,7 @@
 
             <!-- 底部信息 -->
             <div class="cover-footer">
-                <div><strong>罗丽君</strong> ｜ PBL研学指导师 · 旅游产品经理 · 研学产品经理</div>
+                <div><strong>罗丽君</strong> ｜ 自然研学指导师 · 旅游产品经理 · 研学产品经理</div>
                 <div>
                     完整作品集：
                     <a href="https://luoaluo8888-ui.github.io/hahha/" target="_blank" rel="noopener"
